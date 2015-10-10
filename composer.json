@@ -1,8 +1,8 @@
 {
-  "name": "bendani/php-common/wizard-service",
+  "name": "bendani/php-common/filter-service",
   "autoload": {
     "psr-4": {
-      "Bendani\\PhpCommon\\WizardService\\": "src"
+      "Bendani\\PhpCommon\\FilterService\\": "src"
     }
   },
   "require": {
