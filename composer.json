@@ -1,0 +1,12 @@
+{
+  "name": "bendani/php-common/wizard-service",
+  "autoload": {
+    "psr-4": {
+      "Bendani\\PhpCommon\\WizardService\\": "src"
+    }
+  },
+  "require": {
+    "illuminate/routing": "~4.0",
+    "illuminate/support": "~4.0"
+  }
+}
