@@ -6,7 +6,12 @@
     }
   },
   "require": {
-    "illuminate/routing": "~4.0",
-    "illuminate/support": "~4.0"
-  }
+    "bendani/php-common/utils": "dev-master"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/garagepoort/php-common-utils.git"
+    }
+  ]
 }

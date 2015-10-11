@@ -1,5 +1,9 @@
 <?php
 
+namespace Bendani\PhpCommon\FilterService\Model;
+
+use Bendani\PhpCommon\Utils\Model\BasicEnum;
+
 class FilterOperator extends BasicEnum{
     const EQUALS = "equals";
     const GREATER_THAN = "greater_than";
