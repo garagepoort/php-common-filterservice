@@ -6,7 +6,7 @@
     }
   },
   "require": {
-    "bendani/php-common/utils": "dev-master"
+    "bendani/php-common/utils": "1.0.*"
   },
   "repositories": [
     {
