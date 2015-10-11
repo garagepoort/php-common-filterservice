@@ -38,6 +38,6 @@ class FilterManager
                 "supportedOperators" => $item->getSupportedOperators()
             );
         }, $this->filters );
-        return json_encode($jsonItems);
+        return $jsonItems;
     }
 }
