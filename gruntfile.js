@@ -3,7 +3,7 @@ module.exports = function (grunt) {
 
         concat: {
             js: {
-                src: ['src/js/bootstrap-multiselect.js', 'src/js/bootstrap-multiselect-collapsible-groups.js','src/js/*.js'],
+                src: ['src/js/bootstrap-switch.js', 'src/js/bootstrap-multiselect.js', 'src/js/bootstrap-multiselect-collapsible-groups.js','src/js/*.js'],
                 dest: 'src/js/concat.js'
             }
         },
@@ -20,7 +20,7 @@ module.exports = function (grunt) {
             },
             target: {
                 files: {
-                    'public/filters.min.css': ['src/css/filters.css', 'src/css/bootstrap-multiselect.css']
+                    'public/filters.min.css': ['src/css/filters.css', 'src/css/bootstrap-multiselect.css', 'src/css/bootstrap-switch.css']
                 }
             }
         }
