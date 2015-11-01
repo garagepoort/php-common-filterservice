@@ -7,9 +7,11 @@ class FilterManager
 
     /** @var array  */
     private $filters;
+    private $filtersAsList;
 
     public function __construct($filters)
     {
+        $this->filtersAsList = $filters;
         foreach($filters as $filter){
             $this->filters[$filter->getFilterId()] = $filter;
         }
@@ -37,7 +39,7 @@ class FilterManager
                 "options" => method_exists($item, "getOptions") ? $item->getOptions() : null,
                 "supportedOperators" => $item->getSupportedOperators()
             );
-        }, $this->filters );
+        }, $this->filtersAsList );
         return $jsonItems;
     }
 }
