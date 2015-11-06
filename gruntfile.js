@@ -23,7 +23,8 @@ module.exports = function (grunt) {
                     'public/filters.min.css': ['src/css/filters.css', 'src/css/bootstrap-multiselect.css', 'src/css/bootstrap-switch.css']
                 }
             }
-        }
+        },
+        clean: ['src/js/concat.js']
     });
 
 // load plugins
@@ -31,9 +32,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
 // register at least this one task
-    grunt.registerTask('default', [ 'concat', 'uglify', 'cssmin' ]);
+    grunt.registerTask('default', [ 'concat', 'uglify', 'cssmin', 'clean']);
 
 
 };
