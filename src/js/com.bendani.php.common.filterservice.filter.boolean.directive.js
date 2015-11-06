@@ -6,7 +6,7 @@ angular
                 filter: "=filter"
             },
             restrict: "E",
-            templateUrl: '<div ng-include="getTemplateUrl()"></div>',
+            template: '<div ng-include="getTemplateUrl()"></div>',
             controller: ['$scope', '$rootScope', function($scope, $rootScope) {
                 $scope.filter.value = false;
                 $scope.getTemplateUrl = function(){
