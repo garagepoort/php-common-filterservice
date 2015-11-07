@@ -4,7 +4,7 @@ angular.module('com.bendani.php.common.filterservice', [])
         scope: {
             filter: "="
         },
-        template: '<div></div>',
+        template: '<div>testtest</div>',
         restrict: 'E',
         link: function($scope, $elem){
             var htm = "";
