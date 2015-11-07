@@ -27,4 +27,4 @@ angular.module('com.bendani.php.common.filterservice', [])
             $elem.append(compiled);
         }
     }
-}])
+}]);
