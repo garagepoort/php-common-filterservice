@@ -1,5 +1,6 @@
 angular.module('com.bendani.php.common.filterservice', [])
 .directive('filterParent', ['$scope', '$compile', function($scope, $compile){
+    console.log("Directive was run");
     return {
         scope: {
             filter: "="
