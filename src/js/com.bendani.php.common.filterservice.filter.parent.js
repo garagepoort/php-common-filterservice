@@ -1,10 +1,10 @@
 angular.module('com.bendani.php.common.filterservice', [])
-.directive('filterParent', [ '$compile', function($compile){
+.directive('filterParent', ['$scope', '$compile', function($scope, $compile){
     return {
         scope: {
             filter: "="
         },
-        template: '<div>testtest</div>',
+        template: '<div></div>',
         restrict: 'E',
         link: function($scope, $elem){
             var htm = "";
