@@ -3,7 +3,7 @@ module.exports = function (grunt) {
 
         concat: {
             js: {
-                src: ['src/js/bootstrap-switch.js', 'src/js/bootstrap-multiselect.js', 'src/js/bootstrap-multiselect-collapsible-groups.js','src/js/*.js'],
+                src: ['src/js/bootstrap-switch.js', 'src/js/bootstrap-multiselect.js', 'src/js/bootstrap-multiselect-collapsible-groups.js', 'src/js/com.bendani.php.common.filterservice.js','src/js/*.js'],
                 dest: 'src/js/concat.js'
             }
         },
