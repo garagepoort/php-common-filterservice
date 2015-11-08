@@ -2,15 +2,15 @@
     <label class='control-label col-md-10'>{{filter.field}}</label>
     <div class="col-md-10 filter-input">
         <select ng-show="shouldShowOperators()" class="input-sm form-control operator-select" ng-model="filter.selectedOperator" ng-options="operator.value as operator.key for operator in filter.supportedOperators"></select>
-        <select ng-class="shouldShowOperators() ?  'operator-input' : ''" class="filterinput input-sm form-control" multiple="multiple" ng-model="filter.value"
-                ng-options="option.value as option.key for option in filter.options"></select>
-        <am-multiselect class="filterinput input-sm form-control"
-                        multiple="true"
-                        ng-class="shouldShowOperators() ?  'operator-input' : ''"
-                        ms-selected ="filter.value.length geselecteerd"
-                        ng-model="filter.value" ms-header="Selecteer"
-                        options="option.value as option.key for option in filter.options"
-                        template-url="getMultiselectTemplate()"
-                        change="selected()"></am-multiselect>
+        <multiselect
+                ng-class="shouldShowOperators() ?  'operator-input' : ''"
+                ng-model="filter.value"
+                options="option.value as option.key for option in filter.options"
+                data-multiple="true"
+                data-compare-by="id"
+                scroll-after-rows="5"
+                filter-after-rows="5"
+                max-width="100">
+        </multiselect>
     </div>
 </div>

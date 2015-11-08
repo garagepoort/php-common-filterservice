@@ -1,1 +1,1 @@
-angular.module('com.bendani.php.common.filterservice', ['frapontillo.bootstrap-switch', 'am.multiselect']);
+angular.module('com.bendani.php.common.filterservice', ['frapontillo.bootstrap-switch', 'ui.multiselect']);
