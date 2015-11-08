@@ -18,6 +18,10 @@ angular
                 $scope.getTemplateUrl = function(){
                     return $rootScope.baseUrl + "packages/bendani/php-common/filter-service/filter-multiselect.html";
                 }
+
+                $scope.getMultiselectTemplate = function () {
+                    return $rootScope.baseUrl + "packages/bendani/php-common/filter-service/multiselect.tmpl.html";
+                }
             }]
         };
     });
