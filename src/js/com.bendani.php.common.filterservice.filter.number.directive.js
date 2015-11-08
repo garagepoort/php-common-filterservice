@@ -9,7 +9,7 @@ angular
             template: '<div ng-include="getTemplateUrl()"></div>',
             controller: ['$scope', '$rootScope', function($scope, $rootScope) {
                 $scope.filter.value = 0;
-                $scope.filter.selectedOperator = $scope.filter.supportedOperators[0];
+                $scope.filter.selectedOperator = $scope.filter.supportedOperators[0].value;
 
                 $scope.shouldShowOperators = function(){
                     return $scope.filter.supportedOperators.length > 1;
