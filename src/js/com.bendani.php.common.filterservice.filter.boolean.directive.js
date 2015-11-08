@@ -1,5 +1,5 @@
 angular
-    .module('com.bendani.php.common.filterservice', ['frapontillo.bootstrap-switch'])
+    .module('com.bendani.php.common.filterservice')
     .directive('filterBoolean', function (){
         return {
             scope: {

@@ -1,0 +1,1 @@
+angular.module('com.bendani.php.common.filterservice', ['frapontillo.bootstrap-switch']);

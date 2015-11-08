@@ -1,5 +1,5 @@
 angular
-    .module('com.bendani.php.common.filterservice', [])
+    .module('com.bendani.php.common.filterservice')
     .directive('filterOptions', function (){
         return {
             scope: {
