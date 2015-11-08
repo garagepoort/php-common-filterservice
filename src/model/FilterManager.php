@@ -21,6 +21,12 @@ class FilterManager
         /** @var FilterHandler $handler */
         $handler = $this->filters[$filterId];
         $queryBuilder = $handler->joinQuery($queryBuilder);
+
+        if($handler->getType() === "multiselect"){
+            $value = array_map(function($item){
+                return $item->value;
+            }, $value);
+        }
         return $handler->handleFilter($queryBuilder, $value, $operator);
     }
 
