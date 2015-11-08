@@ -18,11 +18,6 @@ angular
                 $scope.getTemplateUrl = function(){
                     return $rootScope.baseUrl + "packages/bendani/php-common/filter-service/filter-multiselect.html";
                 }
-            }],
-            link: function($scope, $elem){
-                $elem.find(".filterinput").multiselect({
-                    enableFiltering: true
-                });
-            }
+            }]
         };
     });
