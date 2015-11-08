@@ -5,7 +5,7 @@
         <multiselect
                 ng-class="shouldShowOperators() ?  'operator-input' : ''"
                 ng-model="filter.value"
-                options="option.value as option.key for option in filter.options"
+                options="option.key for option in filter.options"
                 data-multiple="true"
                 data-compare-by="id"
                 scroll-after-rows="5"
