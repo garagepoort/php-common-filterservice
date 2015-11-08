@@ -24,7 +24,7 @@ class FilterManager
 
         if($handler->getType() === "multiselect"){
             $value = array_map(function($item){
-                return $item->value;
+                return $item["value"];
             }, $value);
         }
         return $handler->handleFilter($queryBuilder, $value, $operator);
