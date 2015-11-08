@@ -1,6 +1,6 @@
 angular
     .module('com.bendani.php.common.filterservice.filterparent', [])
-    .directive('filterParent', ['$scope', '$compile', function ($scope, $compile) {
+    .directive('filterParent', ['$compile', function ($compile) {
         return {
             scope: {
                 filter: "="
