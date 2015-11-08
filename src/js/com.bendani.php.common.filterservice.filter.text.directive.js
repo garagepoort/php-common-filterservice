@@ -16,7 +16,7 @@ angular
                 }
 
                 $scope.getTemplateUrl = function(){
-                    return $rootScope.baseUrl + "packages/bendani/php-common/filter-service/filter-boolean.html";
+                    return $rootScope.baseUrl + "packages/bendani/php-common/filter-service/filter-text.html";
                 }
             }]
         };
