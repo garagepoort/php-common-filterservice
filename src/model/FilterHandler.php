@@ -18,4 +18,6 @@ interface FilterHandler
     public function getSupportedOperators();
 
     public function joinQuery($queryBuilder);
+
+    public function isVisible();
 }
