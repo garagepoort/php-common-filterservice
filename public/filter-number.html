@@ -10,7 +10,7 @@
     <div class="input-group-btn" ng-show="shouldShowOperators()">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">operator <span class="caret"></span></button>
         <ul class="dropdown-menu">
-            <li ng-repeat="operator in filter.supportedOperators"><a href="#" ng-click="setSelectedoperator(operator)">{{operator.key}}</a></li>
+            <li ng-repeat="operator in filter.supportedOperators" ng-click="setSelectedOperator(operator)">{{operator.key}}</li>
         </ul>
     </div>
     <input type="text" class="form-control input-sm" ng-model="filter.value">
