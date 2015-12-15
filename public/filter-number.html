@@ -6,13 +6,13 @@
     <!--</div>-->
 <!--</div>-->
 
-<div class="input-group">
+<div class="input-group" style="width: 200px;">
     <div class="input-group-btn" ng-show="shouldShowOperators()">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">operator <span class="caret"></span></button>
         <ul class="dropdown-menu">
             <li ng-repeat="operator in filter.supportedOperators" ng-click="setSelectedOperator(operator)">{{operator.key}}</li>
         </ul>
     </div>
-    <input type="text" class="form-control input-sm" ng-model="filter.value">
+    <input type="text" class="form-control" ng-model="filter.value">
     <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon1"></span>
 </div>
