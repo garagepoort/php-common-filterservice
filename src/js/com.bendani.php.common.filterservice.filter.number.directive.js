@@ -13,7 +13,11 @@ angular
 
                 $scope.shouldShowOperators = function(){
                     return $scope.filter.supportedOperators.length > 1;
-                }
+                };
+
+                $scope.setSelectedOperator = function (operator) {
+                    $scope.filter.selectedOperator = operator;
+                };
 
                 $scope.getTemplateUrl = function(){
                     return $rootScope.baseUrl + "packages/bendani/php-common/filter-service/filter-number.html";
