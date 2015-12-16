@@ -7,7 +7,7 @@ angular
             },
             restrict: "E",
             template: '<div ng-include="getTemplateUrl()"></div>',
-            controller: ['$scope', '$rootScope', function($scope, $rootScope) {;
+            controller: ['$scope', '$rootScope', function($scope, $rootScope) {
                 $scope.getTemplateUrl = function(){
                     return $rootScope.baseUrl + "packages/bendani/php-common/filter-service/selected-filters.html";
                 };
@@ -15,7 +15,7 @@ angular
                 $scope.onRemove = function(filter){
                     var index = $scope.filters.indexOf(filter);
                     $scope.filters.splice(index, 1);
-                }
+                };
             }]
         };
     });
