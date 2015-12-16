@@ -3,7 +3,8 @@ angular
     .directive('filterText', function (){
         return {
             scope: {
-                filter: "=filter"
+                filter: "=filter",
+                onRemove: '&'
             },
             restrict: "E",
             template: '<div ng-include="getTemplateUrl()"></div>',
@@ -13,11 +14,11 @@ angular
 
                 $scope.shouldShowOperators = function(){
                     return $scope.filter.supportedOperators.length > 1;
-                }
+                };
 
                 $scope.getTemplateUrl = function(){
                     return $rootScope.baseUrl + "packages/bendani/php-common/filter-service/filter-text.html";
-                }
+                };
             }]
         };
     });

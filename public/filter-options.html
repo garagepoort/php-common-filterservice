@@ -8,6 +8,6 @@
 
     <select ng-class="shouldShowOperators() ?  'operator-input' : ''" class="filterinput input-sm form-control" ng-model="filter.value" ng-options="option.value as option.key for option in filter.options"></select>
     <span class="input-group-btn">
-        <button class="btn btn-default half-round-corners-right" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+        <button class="btn btn-default half-round-corners-right" ng-click="onRemove(filter)" type="button"><span class="glyphicon glyphicon-remove"></span></button>
     </span>
 </div>

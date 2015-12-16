@@ -3,7 +3,8 @@ angular
     .directive('filterMultiselect', function (){
         return {
             scope: {
-                filter: "=filter"
+                filter: "=filter",
+                onRemove: '&'
             },
             restrict: "E",
             template: '<div ng-include="getTemplateUrl()"></div>',
