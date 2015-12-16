@@ -22,7 +22,11 @@ angular
 
                 $scope.getTemplateUrl = function(){
                     return $rootScope.baseUrl + "packages/bendani/php-common/filter-service/filter-number.html";
-                }
+                };
+
+                $scope.removeFilter = function(filter){
+                    $scope.onRemove(filter);
+                };
             }]
         };
     });
