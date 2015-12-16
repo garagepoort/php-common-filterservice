@@ -13,8 +13,8 @@ angular
                 };
 
                 $scope.onRemove = function(filter){
-                    var index = $scope.filters.selected.indexOf(filter);
-                    $scope.filters.selected.splice(index, 1);
+                    var index = $scope.filters.indexOf(filter);
+                    $scope.filters.splice(index, 1);
                 }
             }]
         };
