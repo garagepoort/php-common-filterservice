@@ -1,6 +1,6 @@
 angular
     .module('com.bendani.php.common.filterservice')
-    .directive('selected-filters', function (){
+    .directive('selectedFilters', function (){
         return {
             scope: {
                 filters: "=filters"
