@@ -41,7 +41,7 @@ class FilterManager
                 "id" => $item->getFilterId(),
                 "group" => $item->getGroup(),
                 "type" => $item->getType(),
-                "field" => $item->getField(),
+                "key" => $item->getField(),
                 "options" => method_exists($item, "getOptions") ? $item->getOptions() : null,
                 "supportedOperators" => $item->getSupportedOperators()
             );
