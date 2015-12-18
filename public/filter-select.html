@@ -5,7 +5,7 @@
         </dt>
         <dt>
         <dd ng-repeat="filter in getAllFiltersFromGroup(group)">
-            <input ng-checked="filters.selected.indexOf(filter) != -1" type="checkbox" ng-click="selectFilter($event, filter)"/> <label>{{filter.field}}</label>
+            <input ng-checked="selectedFilters.indexOf(filter) != -1" type="checkbox" ng-click="selectFilter($event, filter)"/> <label>{{filter.field}}</label>
         </dd>
         </dt>
     </dl>

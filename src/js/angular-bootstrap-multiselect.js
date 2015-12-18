@@ -313,7 +313,7 @@ angular.module("ui.multiselect", ["multiselect.tpl.html"])
 angular.module("multiselect.tpl.html", []).run(["$templateCache", function($templateCache) {
 	$templateCache.put("multiselect.tpl.html",
 			"<div class=\"btn-group\">\n" +
-			"  <button title=\"{{header}}\" type=\"button\" class=\"btn btn-default dropdown-toggle\" ng-click=\"toggleSelect()\" ng-disabled=\"disabled\" ng-class=\"{'error': !valid()}\">\n" +
+			"  <button title=\"{{header}}\" type=\"button\" class=\"btn btn-sm btn-default dropdown-toggle\" ng-click=\"toggleSelect()\" ng-disabled=\"disabled\" ng-class=\"{'error': !valid()}\">\n" +
 			"    <div ng-style=\"maxWidth\" style=\"padding-right: 13px; overflow: hidden; text-overflow: ellipsis;\">{{header}}</div><span class=\"caret\" style=\"position:absolute;right:10px;top:14px;\"></span>\n" +
 			"  </button>\n" +
 			"  <ul class=\"dropdown-menu\" style=\"margin-bottom:30px;padding-left:5px;padding-right:5px;\" ng-style=\"ulStyle\">\n" +
