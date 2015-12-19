@@ -6,14 +6,15 @@
         </ul>
     </div>
     <div class="float-left">
-        <multiselect
-                ng-model="filter.value"
-                options="option.value as option.key for option in filter.options"
-                data-multiple="true"
-                data-compare-by="value"
-                scroll-after-rows="5"
-                filter-after-rows="5"
-                max-width="100">
-        </multiselect>
+        <!--<multiselect-->
+                <!--ng-model="filter.value"-->
+                <!--options="option.value as option.key for option in filter.options"-->
+                <!--data-multiple="true"-->
+                <!--data-compare-by="value"-->
+                <!--scroll-after-rows="5"-->
+                <!--filter-after-rows="5"-->
+                <!--max-width="100">-->
+        <!--</multiselect>-->
+        <multi-select selected-items="filter.value" all-items="filter.options"></multi-select>
     </div>
 </div>
