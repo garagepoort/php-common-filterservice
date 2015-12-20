@@ -1,4 +1,4 @@
 <div class="input-group margin-10 exclude" >
-    <button popover-elem style="width: 150px; text-align: left;" popover-placement="bottom" uib-popover-template="filterTemplate" type="button" class="btn btn-sm btn-default half-round-corners-left exclude">{{ filter.key + ": " + filter.value }}</button>
+    <button popover-elem style="width: 150px; text-align: left;" popover-placement="bottom" uib-popover-template="filterTemplate" type="button" class="btn btn-sm btn-default half-round-corners-left exclude">{{ getDropdownLabel() }}</button>
     <button style="margin-left: -1px;" class="btn btn-default btn-sm half-round-corners-right" ng-click="onRemove(filter)" type="button"><span class="glyphicon glyphicon-remove"></span></button>
 </div>

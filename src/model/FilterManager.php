@@ -30,17 +30,4 @@ class FilterManager
         return $this->filtersAsList;
     }
 
-//    public function getFiltersInJson(){
-//        $jsonItems = array_map(function ($item) {
-//            return array(
-//                "id" => $item->getFilterId(),
-//                "group" => $item->getGroup(),
-//                "type" => $item->getType(),
-//                "key" => $item->getField(),
-//                "options" => method_exists($item, "getOptions") ? $item->getOptions() : null,
-//                "supportedOperators" => $item->getSupportedOperators()
-//            );
-//        }, $this->filtersAsList );
-//        return $jsonItems;
-//    }
 }

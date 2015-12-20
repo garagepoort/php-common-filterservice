@@ -9,8 +9,12 @@ angular
             restrict: "E",
             template: '<div ng-include="getTemplateUrl()"></div>',
             controller: ['$scope', '$rootScope', function($scope, $rootScope) {
-                $scope.filter.value = "";
-                $scope.filter.selectedOperator = $scope.filter.supportedOperators[0];
+                if(!$scope.filter.value){
+                    $scope.filter.value = "";
+                }
+                if(!$scope.filter.selectedOperator){
+                    $scope.filter.selectedOperator = $scope.filter.supportedOperators[0];
+                }
 
                 $scope.shouldShowOperators = function(){
                     return $scope.filter.supportedOperators.length > 1;
