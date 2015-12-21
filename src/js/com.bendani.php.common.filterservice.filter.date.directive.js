@@ -1,6 +1,6 @@
 angular
     .module('com.bendani.php.common.filterservice')
-    .directive('filterNumber', function (){
+    .directive('filterDate', function (){
         return {
             scope: {
                 filter: "=filter",
@@ -10,7 +10,7 @@ angular
             template: '<div ng-include="getTemplateUrl()"></div>',
             controller: ['$scope', '$rootScope', function($scope, $rootScope) {
                 if(!$scope.filter.value){
-                    $scope.filter.value = 0;
+                    $scope.filter.value = {};
                 }
                 if(!$scope.filter.selectedOperator && $scope.filter.supportedOperators){
                     $scope.filter.selectedOperator = $scope.filter.supportedOperators[0];
@@ -21,7 +21,7 @@ angular
                 };
 
                 $scope.getTemplateUrl = function(){
-                    return $rootScope.baseUrl + "packages/bendani/php-common/filter-service/filter-number.html";
+                    return $rootScope.baseUrl + "packages/bendani/php-common/filter-service/filter-date.html";
                 };
             }]
         };

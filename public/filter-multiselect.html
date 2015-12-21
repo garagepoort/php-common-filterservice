@@ -1,10 +1,5 @@
 <div class="input-group exclude">
-    <div class="input-group-btn" ng-show="shouldShowOperators()">
-        <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{filter.selectedOperator.key}} <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-            <li ng-repeat="operator in filter.supportedOperators" ng-click="setSelectedOperator(operator)"><a>{{operator.key}}</a></li>
-        </ul>
-    </div>
+    <ng-include style="float: left" src="'packages/bendani/php-common/filter-service/operators.html'"></ng-include>
     <div class="float-left">
         <multi-select selected-items="filter.value" all-items="filter.options"></multi-select>
     </div>

@@ -12,13 +12,9 @@ angular
                 if(!$scope.filter.value){
                     $scope.filter.value = "";
                 }
-                if(!$scope.filter.selectedOperator){
+                if(!$scope.filter.selectedOperator && $scope.filter.supportedOperators){
                     $scope.filter.selectedOperator = $scope.filter.supportedOperators[0];
                 }
-
-                $scope.shouldShowOperators = function(){
-                    return $scope.filter.supportedOperators.length > 1;
-                };
 
                 $scope.getTemplateUrl = function(){
                     return $rootScope.baseUrl + "packages/bendani/php-common/filter-service/filter-options.html";

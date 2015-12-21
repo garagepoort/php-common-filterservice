@@ -1,0 +1,6 @@
+<div class="input-group-btn" ng-show="filter.supportedOperators">
+    <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{filter.selectedOperator.key}} <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li ng-repeat="operator in filter.supportedOperators" ng-click="setSelectedOperator(operator)"><a>{{operator.key}}</a></li>
+    </ul>
+</div>

@@ -1,0 +1,31 @@
+<div class="input-group exclude">
+
+    <div class="form-group required">
+        <label class="control-label">Van: </label>
+        <p class="input-group input-width-sm">
+            <input type="text" class="form-control" is-open="datepicker.opened"
+                   show-button-bar="false"
+                   date-formatter
+                   ng-model-options="{ allowInvalid: true }"
+                   uib-datepicker-popup="dd-MM-yyyy" ng-model="filter.value.from" is-open="false"
+                   ng-required="true" close-text="Sluiten"/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openDatePicker()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+        </p>
+    </div>
+    <div class="form-group required">
+        <label class="control-label">Tot: </label>
+        <p class="input-group input-width-sm">
+            <input type="text" class="form-control" is-open="datepicker.opened"
+                   show-button-bar="false"
+                   date-formatter
+                   ng-model-options="{ allowInvalid: true }"
+                   uib-datepicker-popup="dd-MM-yyyy" ng-model="filter.value.to" is-open="false"
+                   ng-required="true" close-text="Sluiten"/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openDatePicker()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+        </p>
+    </div>
+</div>

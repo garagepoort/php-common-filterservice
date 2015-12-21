@@ -36,14 +36,36 @@ angular
                     var result = [];
                     for (var filter in  filters) {
                         var filterObject = filters[filter];
-                        result.push({
-                            id: filterObject.id,
-                            value: filterObject.value,
-                            operator: filterObject.selectedOperator.value
-                        });
+
+                        if(validateFilter(filterObject)){
+                            var newFilter = {
+                                id: filterObject.id,
+                                value: filterObject.value,
+                            };
+
+                            if(filterObject.selectedOperator){
+                                newFilter.operator = filterObject.selectedOperator.value;
+                            }
+
+                            result.push(newFilter);
+                        }
                     }
 
                     return result;
+                }
+
+                function validateFilter(filter){
+                    if(filter.type === 'date'){
+                        if(!filter.value || !filter.value.from){
+                            return false;
+                        }
+                    }
+                    if(filter.type === 'multiselect'){
+                        if(filter.value.length === 0){
+                            return false;
+                        }
+                    }
+                    return true;
                 }
 
             }]

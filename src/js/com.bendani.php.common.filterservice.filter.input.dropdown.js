@@ -24,6 +24,9 @@ angular
                 if ($scope.filter.type === "options") {
                     $scope.filterTemplate = 'packages/bendani/php-common/filter-service/popover/filter-options-popover-template.html';
                 }
+                if ($scope.filter.type === "date") {
+                    $scope.filterTemplate = 'packages/bendani/php-common/filter-service/popover/filter-date-popover-template.html';
+                }
 
                 $scope.getTemplateUrl = function(){
                     return $rootScope.baseUrl + "packages/bendani/php-common/filter-service/filter-input-dropdown.html";
@@ -31,6 +34,11 @@ angular
 
                 $scope.getDropdownLabel = function(){
                     var label = $scope.filter.key + ": ";
+
+                    if($scope.filter.selectedOperator){
+                        label =  label + ' ' + $scope.filter.selectedOperator.key + ' ';
+                    }
+
                     if($scope.filter.value){
                         if( Object.prototype.toString.call($scope.filter.value) === '[object Array]' ) {
                             var mapped = _.map($scope.filter.value, function(item){ return item.key; });
