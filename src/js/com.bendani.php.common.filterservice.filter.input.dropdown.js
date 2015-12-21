@@ -39,12 +39,17 @@ angular
                         label =  label + ' ' + $scope.filter.selectedOperator.key + ' ';
                     }
 
-                    if($scope.filter.value){
-                        if( Object.prototype.toString.call($scope.filter.value) === '[object Array]' ) {
-                            var mapped = _.map($scope.filter.value, function(item){ return item.key; });
+                    if($scope.filter.value) {
+                        if (Object.prototype.toString.call($scope.filter.value) === '[object Array]') {
+                            var mapped = _.map($scope.filter.value, function (item) {
+                                return item.key;
+                            });
                             $conArray = mapped.join(', ');
                             $valueString = $conArray.substring(0, 10) + "... (" + mapped.length + ")";
                             label = label + $valueString;
+
+                        }else if($scope.filter.value.type === 'date'){
+                            label = label + $scope.filter.value;
                         }else{
                             label = label + $scope.filter.value;
                         }
