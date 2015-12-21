@@ -16,6 +16,22 @@ angular
                     $scope.filter.selectedOperator = $scope.filter.supportedOperators[0];
                 }
 
+                $scope.datepickerFrom = {
+                    opened: false
+                };
+
+                $scope.datepickerTo = {
+                    opened: false
+                };
+
+                $scope.openDatePickerFrom = function(){
+                    $scope.datepickerFrom.opened = true;
+                };
+
+                $scope.openDatePickerTo = function(){
+                    $scope.datepickerTo.opened = true;
+                };
+
                 $scope.setSelectedOperator = function (operator) {
                     $scope.filter.selectedOperator = operator;
                 };
