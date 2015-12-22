@@ -1,9 +1,9 @@
 <div style="width: 100%">
-    <div class="pull-left" style="width: 86%">
+    <div class="pull-left margin-bottom-15" style="width: 86%">
         <filter-input-dropdown ng-repeat="filter in selectedFilters" filter="filter" style="float: left" on-remove="onRemove(filter)"></filter-input-dropdown>
     </div>
-    <div class="pull-right" style="width: 14%">
-        <button popover-elem popover-placement="bottom" uib-popover-template="filterSelectTemplate" popover-title="Filters" type="button" class="btn btn-sm btn-default pull-right margin-10 exclude"><span class="glyphicon glyphicon-plus popover-elem"></span></button>
-        <button ng-click="filter()" type="button" class="btn btn-sm btn-primary pull-right margin-10"><span class="glyphicon glyphicon-refresh"></span></button>
+    <div class="pull-right margin-bottom-10 margin-top-10" style="width: 14%">
+        <button popover-elem popover-placement="bottom" uib-popover-template="filterSelectTemplate" popover-title="Filters" type="button" class="btn btn-sm btn-default pull-right margin-left-10 exclude"><span class="glyphicon glyphicon-plus popover-elem"></span></button>
+        <button ng-click="filter()" type="button" class="btn btn-sm btn-primary pull-right"><span class="glyphicon glyphicon-refresh"></span></button>
     </div>
 </div>
