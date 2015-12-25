@@ -57,7 +57,7 @@ angular
                             label = label + $scope.filter.value;
                         }
                     }
-                    return label;
+                    return label.substring(0,25);
                 }
 
             }]
