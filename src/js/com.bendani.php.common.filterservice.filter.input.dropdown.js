@@ -8,7 +8,7 @@ angular
             },
             restrict: "E",
             template: '<div ng-include="getTemplateUrl()"></div>',
-            controller: ['$scope', '$rootScope', '$compile', function($scope, $rootScope) {
+            controller: ['$scope', '$rootScope', 'DateService', function($scope, $rootScope, DateService) {
                 if ($scope.filter.type === "boolean") {
                     $scope.filterTemplate = 'packages/bendani/php-common/filter-service/popover/filter-boolean-popover-template.html';
                 }
@@ -48,8 +48,11 @@ angular
                             $valueString = $conArray.substring(0, 10) + "... (" + mapped.length + ")";
                             label = label + $valueString;
 
-                        }else if($scope.filter.value.type === 'date'){
-                            label = label + $scope.filter.value;
+                        }else if($scope.filter.type === 'date'){
+                            label = label + DateService.dateToString($scope.filter.value.from);
+                            if($scope.filter.value.to){
+                                label = label + ' - ' + DateService.dateToString($scope.filter.value.to);
+                            }
                         }else{
                             label = label + $scope.filter.value;
                         }
