@@ -30,4 +30,7 @@ class FilterManager
         return $this->filtersAsList;
     }
 
+    public function getFilter($filterId){
+        return $this->filters[$filterId];
+    }
 }
