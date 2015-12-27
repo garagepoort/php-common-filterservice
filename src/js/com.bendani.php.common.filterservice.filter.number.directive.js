@@ -3,8 +3,7 @@ angular
     .directive('filterNumber', function (){
         return {
             scope: {
-                filter: "=filter",
-                onRemove: '&'
+                filter: "=filter"
             },
             restrict: "E",
             template: '<div ng-include="getTemplateUrl()"></div>',

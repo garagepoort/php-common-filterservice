@@ -1,4 +1,3 @@
 <div class="input-group exclude">
-    <ng-include style="float: left" src="'packages/bendani/php-common/filter-service/operators.html'"></ng-include>
-    <input bs-switch class="filterInput" type="checkbox" ng-model="filter.value" switch-on-text="Ja" switch-off-text="Nee" switch-size="small"/>
+    <radio-select model="model" on-select="onSelect(item)"></radio-select>
 </div>

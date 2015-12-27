@@ -56,6 +56,10 @@ angular
                 }
 
                 function validateFilter(filter){
+                    if(filter.value === undefined || filter.value === null){
+                        return false;
+                    }
+
                     if(filter.type === 'date'){
                         if(!filter.value || !filter.value.from){
                             return false;

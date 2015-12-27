@@ -39,7 +39,7 @@ angular
                         label =  label + ' ' + $scope.filter.selectedOperator.key + ' ';
                     }
 
-                    if($scope.filter.value) {
+                    if($scope.filter.value !== undefined) {
                         if (Object.prototype.toString.call($scope.filter.value) === '[object Array]') {
                             var mapped = _.map($scope.filter.value, function (item) {
                                 return item.key;
@@ -53,8 +53,12 @@ angular
                             if($scope.filter.value.to){
                                 label = label + ' - ' + DateService.dateToString($scope.filter.value.to);
                             }
-                        }else{
-                            label = label + $scope.filter.value;
+                        } else if($scope.filter.type === 'boolean'){
+                            if($scope.filter.value === true){
+                                label = label + 'Ja';
+                            }else{
+                                label = label + 'Nee';
+                            }
                         }
                     }
                     return label.substring(0,25);
