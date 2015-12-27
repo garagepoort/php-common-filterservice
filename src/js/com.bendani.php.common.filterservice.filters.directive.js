@@ -62,7 +62,7 @@ angular
                         }
                     }
                     if(filter.type === 'multiselect'){
-                        if(filter.value.length === 0){
+                        if(!filter.value || filter.value.length === 0){
                             return false;
                         }
                     }
