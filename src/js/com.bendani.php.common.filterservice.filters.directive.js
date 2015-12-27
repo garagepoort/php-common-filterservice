@@ -17,9 +17,10 @@ angular
                 };
 
                 $scope.onRemove = function(filter){
-                    var index = $scope.selectedFilters.indexOf(filter);
-                    if(index > -1){
-                        $scope.selectedFilters.splice(index, 1);
+                    for(var i=0; i<$scope.selectedFilters.length; i++) {
+                        if( $scope.selectedFilters[i].id == filter.id){
+                            $scope.selectedFilters.splice(i,1);
+                        }
                     }
                 };
 
@@ -34,13 +35,13 @@ angular
 
                 function convertFiltersToJson(filters){
                     var result = [];
-                    for (var filter in  filters) {
-                        var filterObject = filters[filter];
+                    for (var i = 0; i < filters.length; i++) {
+                        var filterObject = filters[i];
 
                         if(validateFilter(filterObject)){
                             var newFilter = {
                                 id: filterObject.id,
-                                value: filterObject.value,
+                                value: filterObject.value
                             };
 
                             if(filterObject.selectedOperator){
