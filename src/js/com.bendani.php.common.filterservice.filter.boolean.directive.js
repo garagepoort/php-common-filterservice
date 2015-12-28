@@ -12,8 +12,17 @@ angular
                 var yes = {key: 'Ja', value: true};
                 var no = {key: 'Nee', value: false};
 
+                var selectedValue;
+                if($scope.filter.value !== undefined){
+                    if($scope.filter.value){
+                        selectedValue = yes;
+                    }else{
+                        selectedValue = no;
+                    }
+                }
+
                 $scope.model = {
-                    selected: $scope.filter.value,
+                    selected: selectedValue,
                     all: [yes, no]
                 };
 
