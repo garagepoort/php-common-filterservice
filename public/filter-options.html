@@ -1,0 +1,6 @@
+<div class="input-group exclude">
+
+    <ng-include style="float: left" src="'packages/bendani/php-common/filter-service/operators.html'"></ng-include>
+
+    <select class="filterinput input-sm form-control" ng-model="filter.value" ng-options="option.value as option.key for option in filter.options"></select>
+</div>

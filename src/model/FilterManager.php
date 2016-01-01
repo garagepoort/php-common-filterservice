@@ -7,37 +7,30 @@ class FilterManager
 
     /** @var array  */
     private $filters;
+    private $filtersAsList;
 
     public function __construct($filters)
     {
+        $this->filtersAsList = $filters;
         foreach($filters as $filter){
             $this->filters[$filter->getFilterId()] = $filter;
         }
     }
 
-    public function handle($filterId, $queryBuilder, $value, $operator){
+    public function handle($queryBuilder, Filter $filter){
         /** @var FilterHandler $handler */
-        $handler = $this->filters[$filterId];
+        $handler = $this->filters[$filter->getId()];
         $queryBuilder = $handler->joinQuery($queryBuilder);
-        return $handler->handleFilter($queryBuilder, $value, $operator);
+
+        return $handler->handleFilter($queryBuilder, $filter);
     }
 
     public function getFilters()
     {
-        return $this->filters;
+        return $this->filtersAsList;
     }
 
-    public function getFiltersInJson(){
-        $jsonItems = array_map(function ($item) {
-            return array(
-                "id" => $item->getFilterId(),
-                "group" => $item->getGroup(),
-                "type" => $item->getType(),
-                "field" => $item->getField(),
-                "options" => method_exists($item, "getOptions") ? $item->getOptions() : null,
-                "supportedOperators" => $item->getSupportedOperators()
-            );
-        }, $this->filters );
-        return $jsonItems;
+    public function getFilter($filterId){
+        return $this->filters[$filterId];
     }
 }

@@ -11,3 +11,9 @@ select.input-sm.form-control.operator-select {
   overflow-y: auto;
   overflow-x: hidden;
 }
+.filter-container {
+  width: 200px;
+}
+.filter-input-container {
+  width: 200px;
+}
