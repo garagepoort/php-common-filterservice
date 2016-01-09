@@ -17,12 +17,10 @@ class FilterManager
         }
     }
 
-    public function handle($queryBuilder, Filter $filter){
+    public function handle(Filter $filter){
         /** @var FilterHandler $handler */
         $handler = $this->filters[$filter->getId()];
-        $queryBuilder = $handler->joinQuery($queryBuilder);
-
-        return $handler->handleFilter($queryBuilder, $filter);
+        return $handler->handleFilter($filter);
     }
 
     public function getFilters()

@@ -5,7 +5,7 @@ namespace Bendani\PhpCommon\FilterService\Model;
 interface FilterHandler
 {
 
-    public function handleFilter($queryBuilder, Filter $filter);
+    public function handleFilter(Filter $filter);
 
     public function getFilterId();
 
@@ -16,6 +16,4 @@ interface FilterHandler
     public function getField();
 
     public function getSupportedOperators();
-
-    public function joinQuery($queryBuilder);
 }
