@@ -27,6 +27,14 @@ class FilterBuilder
         return new FilterReturnType(['match' => [$field => $value]]);
     }
 
+    public static function missing($field){
+        return new FilterReturnType(['missing' => ['field' => $field]]);
+    }
+
+    public static function exists($field){
+        return new FilterReturnType(['exists' => ['field' => $field]]);
+    }
+
     public static function range($field, $greaterThan, $lessThan){
         return new FilterReturnType(['range' => [$field => [
             'gte' => $greaterThan,
