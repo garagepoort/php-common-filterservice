@@ -5,12 +5,17 @@ angular
             scope: {
                 allFilters: "=",
                 selectedFilters: "=",
-                onFilter: "&"
+                onFilter: "&",
+                control: '='
             },
             restrict: "E",
             template: '<div ng-include="getTemplateUrl()"></div>',
             controller: ['$scope', '$rootScope', '$compile', function($scope, $rootScope, $compile) {
                 $scope.filterSelectTemplate = 'packages/bendani/php-common/filter-service/filter-select-popover.html';
+
+                if(!$scope.control){
+                    $scope.control = {};
+                }
 
                 $scope.getTemplateUrl = function(){
                     return $rootScope.baseUrl + "packages/bendani/php-common/filter-service/filters-directive.html";
@@ -32,6 +37,8 @@ angular
                 $scope.filter = function(){
                     $scope.onFilter({selectedFilters: convertFiltersToJson($scope.selectedFilters) });
                 };
+
+                $scope.control.filter = $scope.filter;
 
                 function convertFiltersToJson(filters){
                     var result = [];

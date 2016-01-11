@@ -27,6 +27,10 @@ class FilterBuilder
         return new FilterReturnType(['match' => [$field => $value]]);
     }
 
+    public static function term($field, $value){
+        return new FilterReturnType(['term' => [$field => $value]]);
+    }
+
     public static function missing($field){
         return new FilterReturnType(['missing' => ['field' => $field]]);
     }
