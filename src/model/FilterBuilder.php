@@ -13,14 +13,15 @@ class FilterBuilder
     }
 
     public static function terms($field, $values){
-        $values = array_map(function($value){
-            if(is_string($value)){
-                $value = StringUtils::toLowerCase($value);
-            }
-            return $value;
-        }, $values);
+        $values = self::toLowerCase($values);
 
         return new FilterReturnType(['terms' => [$field => $values]]);
+    }
+
+    public static function notTerms($field, $values){
+        $values = self::toLowerCase($values);
+
+        return new FilterReturnType(['not' => ['terms' => [$field => $values]]]);
     }
 
     public static function match($field, $value){
@@ -55,6 +56,21 @@ class FilterBuilder
         return new FilterReturnType(['range' => [$field => [
             'lte' => $value
         ]]]);
+    }
+
+    /**
+     * @param $values
+     * @return array
+     */
+    private static function toLowerCase($values)
+    {
+        $values = array_map(function ($value) {
+            if (is_string($value)) {
+                $value = StringUtils::toLowerCase($value);
+            }
+            return $value;
+        }, $values);
+        return $values;
     }
 
 }
