@@ -1,6 +1,6 @@
 <div style="width: 100%">
     <div class="pull-left margin-bottom-15" style="width: 86%">
-        <filter-input-dropdown ng-repeat="filter in selectedFilters" filter="filter" style="float: left" on-remove="onRemove(filter)"></filter-input-dropdown>
+        <filter-input-dropdown ng-repeat="filter in selectedFilters track by filter.id" filter="filter" style="float: left" on-remove="onRemove(filter)"></filter-input-dropdown>
     </div>
     <div class="pull-right margin-bottom-10 margin-top-10" style="width: 14%">
         <button popover-elem popover-placement="bottom" uib-popover-template="filterSelectTemplate" popover-title="Filters" type="button" class="btn btn-sm btn-default pull-right margin-left-10 exclude"><span class="glyphicon glyphicon-plus popover-elem"></span></button>

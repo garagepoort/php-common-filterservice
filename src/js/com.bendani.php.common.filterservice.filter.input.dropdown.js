@@ -27,6 +27,9 @@ angular
                 if ($scope.filter.type === "date") {
                     $scope.filterTemplate = 'packages/bendani/php-common/filter-service/popover/filter-date-popover-template.html';
                 }
+                if ($scope.filter.type === "partial-date") {
+                    $scope.filterTemplate = 'packages/bendani/php-common/filter-service/popover/filter-partial-date-template.html';
+                }
 
                 $scope.getTemplateUrl = function(){
                     return $rootScope.baseUrl + "packages/bendani/php-common/filter-service/filter-input-dropdown.html";
@@ -53,12 +56,16 @@ angular
                             if($scope.filter.value.to){
                                 label = label + ' - ' + DateService.dateToString($scope.filter.value.to);
                             }
+                        }else if($scope.filter.type === 'partial-date'){
+                            label = label + DateService.dateToString($scope.filter.value);
                         } else if($scope.filter.type === 'boolean'){
                             if($scope.filter.value === true){
                                 label = label + 'Ja';
                             }else{
                                 label = label + 'Nee';
                             }
+                        }else{
+                            label = label + $scope.filter.value;
                         }
                     }
                     return label.substring(0,25);
