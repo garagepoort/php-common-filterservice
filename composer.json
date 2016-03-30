@@ -2,16 +2,21 @@
   "name": "bendani/php-common/filter-service",
   "autoload": {
     "psr-4": {
-      "Bendani\\PhpCommon\\FilterService\\": "src"
+      "Bendani\\PhpCommon\\FilterService\\": "src/main"
     }
   },
   "require": {
-    "bendani/php-common/utils": "1.0.*"
+    "bendani/php-common/utils": "1.0.*",
+    "bendani/php-common/uiframework": "1.3.*"
   },
   "repositories": [
     {
       "type": "vcs",
       "url": "https://github.com/garagepoort/php-common-utils.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/garagepoort/php-common-uiframework.git"
     }
   ]
 }
