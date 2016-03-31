@@ -34,7 +34,7 @@ class FilterManager
     }
 
     public function registerHandlers($handlerGroupId, $handlers){
-        $handlers[$handlerGroupId] = $handlers;
+        $this->handlers[$handlerGroupId] = $handlers;
     }
 
     public function getFilters()
