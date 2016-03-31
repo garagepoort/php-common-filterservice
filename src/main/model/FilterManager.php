@@ -27,7 +27,7 @@ class FilterManager
         Ensure::objectNotNull('handlerGroup', $this->handlers[$handlerGroupId]);
 
         /** @var FilterHandler $handler */
-        $handler = $this->$this->handlers[$handlerGroupId][$filter->getId()];
+        $handler = $this->handlers[$handlerGroupId][$filter->getId()];
         Ensure::objectNotNull('handler for filter', $this->handlers[$handlerGroupId]);
 
         return $handler->handleFilter($filter, $object);
