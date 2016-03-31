@@ -2,14 +2,15 @@
 
 namespace Bendani\PhpCommon\FilterService\Model;
 
-
 interface Filter
 {
+    public function getFilterId();
 
-    function getId();
+    public function getGroup();
 
-    function getValue();
+    public function getType();
 
-    function getOperator();
+    public function getField();
 
+    public function getSupportedOperators();
 }
