@@ -2,7 +2,7 @@
 
 namespace Bendani\PhpCommon\FilterService\Model;
 
-interface OptionsFilterHandler extends FilterHandler
+interface OptionsFilter extends Filter
 {
 
     public function getOptions();
