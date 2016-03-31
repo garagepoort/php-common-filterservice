@@ -3,7 +3,7 @@
 namespace Bendani\PhpCommon\FilterService\Model;
 
 
-use Bendani\PhpCommon\Utils\Model\StringUtils;
+use Bendani\PhpCommon\Utils\StringUtils;
 
 class FilterBuilder
 {
