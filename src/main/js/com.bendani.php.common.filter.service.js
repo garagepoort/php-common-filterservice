@@ -4,8 +4,8 @@ angular
 
         var registeredFilterServices = {};
 
-        var registerFilterService = function(filterServiceId){
-            if(!isFilterRegistered(filterServiceId)){
+        var registerFilterService = function (filterServiceId) {
+            if (!isFilterRegistered(filterServiceId)) {
                 registeredFilterServices[filterServiceId] = {
                     selectedFilters: [],
                     allFilters: [],
@@ -14,34 +14,34 @@ angular
             }
         };
 
-        var setAllFilters = function(id, filters){
-            if(isFilterRegistered(id)){
+        var setAllFilters = function (id, filters) {
+            if (isFilterRegistered(id)) {
                 registeredFilterServices[id].allFilters = filters;
                 triggerHandlers(id);
             }
         };
 
-        var getAllFilters = function(id){
-            if(isFilterRegistered(id)) {
+        var getAllFilters = function (id) {
+            if (isFilterRegistered(id)) {
                 return registeredFilterServices[id].allFilters;
             }
         };
 
-        var setSelectedFilters = function(id, filters){
-            if(isFilterRegistered(id)) {
+        var setSelectedFilters = function (id, filters) {
+            if (isFilterRegistered(id)) {
                 registeredFilterServices[id].selectedFilters = filters;
                 triggerHandlers(id);
             }
         };
 
-        var getSelectedFilters = function(id){
-            if(isFilterRegistered(id)) {
+        var getSelectedFilters = function (id) {
+            if (isFilterRegistered(id)) {
                 return registeredFilterServices[id].selectedFilters;
             }
         };
 
-        var unselectFilter = function(id, filter){
-            if(isFilterRegistered(id)) {
+        var unselectFilter = function (id, filter) {
+            if (isFilterRegistered(id)) {
                 for (var i = 0; i < registeredFilterServices[id].selectedFilters.length; i++) {
                     if (registeredFilterServices[id].selectedFilters[i].id == filter.id) {
                         registeredFilterServices[id].selectedFilters.splice(i, 1);
@@ -51,8 +51,8 @@ angular
             }
         };
 
-        var selectFilter = function(id, filter){
-            if(isFilterRegistered(id)) {
+        var selectFilter = function (id, filter) {
+            if (isFilterRegistered(id)) {
                 var contains = false;
                 for (var i = 0; i < registeredFilterServices[id].selectedFilters.length; i++) {
                     if (registeredFilterServices[id].selectedFilters[i].id == filter.id) {
@@ -66,45 +66,69 @@ angular
             }
         };
 
-        var isFilterSelected = function(id, filter){
-            if(isFilterRegistered(id)) {
+        var setFilterValues = function (id, filterValues) {
+            filterValues.forEach(function (filterValue) {
+                selectFilterValue(id, filterValue);
+            });
+        };
+
+        var selectFilterValue = function (id, filterValue) {
+            if (isFilterRegistered(id)) {
+                var filterInSelected = getSelectedFilter(id, filterValue.id);
+
+                if (filterInSelected) {
+                    filterInSelected.value = filterValue.value;
+                } else {
+                    var filterInAll = getFilter(id, filterValue.id);
+                    if (filterInAll) {
+                        filterInAll.value = filterValue.value;
+                        registeredFilterServices[id].selectedFilters.push(filterInAll);
+                    }
+                }
+
+                triggerHandlers(id);
+            }
+        };
+
+        var isFilterSelected = function (id, filter) {
+            if (isFilterRegistered(id)) {
                 var index = registeredFilterServices[id].selectedFilters.indexOf(filter);
                 return index > -1;
             }
         };
 
-        var filter = function(id, callback){
-            if(isFilterRegistered(id)) {
+        var filter = function (id, callback) {
+            if (isFilterRegistered(id)) {
                 callback(convertFiltersToJson(id));
             }
         };
 
-        var registerHandler = function(id, handler) {
-            if(isFilterRegistered(id)) {
+        var registerHandler = function (id, handler) {
+            if (isFilterRegistered(id)) {
                 registeredFilterServices[id].handlers.push(handler);
             }
         };
 
-        var deregisterHandler = function(id, handler) {
-            var index  = registeredFilterServices[id].handlers.indexOf(handler);
-            if(index > -1){
+        var deregisterHandler = function (id, handler) {
+            var index = registeredFilterServices[id].handlers.indexOf(handler);
+            if (index > -1) {
                 registeredFilterServices[id].handlers.splice(index, 1);
             }
         };
 
-        var convertFiltersToJson = function(id){
+        var convertFiltersToJson = function (id) {
             var result = [];
-            if(registeredFilterServices[id].selectedFilters){
+            if (registeredFilterServices[id].selectedFilters) {
                 for (var i = 0; i < registeredFilterServices[id].selectedFilters.length; i++) {
                     var filterObject = registeredFilterServices[id].selectedFilters[i];
 
-                    if(validateFilter(filterObject)){
+                    if (validateFilter(filterObject)) {
                         var newFilter = {
                             id: filterObject.id,
                             value: filterObject.value
                         };
 
-                        if(filterObject.selectedOperator){
+                        if (filterObject.selectedOperator) {
                             newFilter.operator = filterObject.selectedOperator.value;
                         }
 
@@ -116,42 +140,69 @@ angular
             return result;
         };
 
+        function getSelectedFilter(serviceId, filterId) {
+            if (isFilterRegistered(serviceId)) {
+                var result = $.grep(registeredFilterServices[serviceId].selectedFilters, function (e) {
+                    return e.id == filterId;
+                });
+                if (result.length > 0) {
+                    return result[0];
+                }
+            }
+            return undefined;
+        }
+
+        function getFilter(serviceId, filterId) {
+            if (isFilterRegistered(serviceId)) {
+                var result = $.grep(registeredFilterServices[serviceId].allFilters, function (e) {
+                    return e.id == filterId;
+                });
+                if (result.length > 0) {
+                    return result[0];
+                }
+            }
+            return undefined;
+        }
+
         function triggerHandlers(id) {
             _.each(registeredFilterServices[id].handlers, function (handler) {
                 handler(registeredFilterServices[id].allFilters, registeredFilterServices[id].selectedFilters);
             });
         }
 
-        function validateFilter(filter){
-            if(filter.value === undefined || filter.value === null){
+        function validateFilter(filter) {
+            if (filter.value === undefined || filter.value === null) {
                 return false;
             }
 
-            if(filter.type === 'date'){
-                if(!filter.value || !filter.value.from){
+            if (filter.type === 'date') {
+                if (!filter.value || !filter.value.from) {
                     return false;
                 }
             }
-            if(filter.type === 'multiselect'){
-                if(!filter.value || filter.value.length === 0){
+            if (filter.type === 'multiselect') {
+                if (!filter.value || filter.value.length === 0) {
                     return false;
                 }
             }
             return true;
         }
 
-        function isFilterRegistered(filterServiceId){
+        function isFilterRegistered(filterServiceId) {
             return !!registeredFilterServices[filterServiceId];
         }
+
         return {
-            getAllFilters : getAllFilters,
-            setAllFilters : setAllFilters,
-            getSelectedFilters : getSelectedFilters,
-            setSelectedFilters : setSelectedFilters,
-            unselectFilter : unselectFilter,
-            selectFilter : selectFilter,
-            registerHandler : registerHandler,
-            deregisterHandler : deregisterHandler,
+            getAllFilters: getAllFilters,
+            setAllFilters: setAllFilters,
+            getSelectedFilters: getSelectedFilters,
+            setSelectedFilters: setSelectedFilters,
+            unselectFilter: unselectFilter,
+            selectFilter: selectFilter,
+            selectFilterValue: selectFilterValue,
+            setFilterValues: setFilterValues,
+            registerHandler: registerHandler,
+            deregisterHandler: deregisterHandler,
             isFilterSelected: isFilterSelected,
             convertFiltersToJson: convertFiltersToJson,
             registerFilterService: registerFilterService,
