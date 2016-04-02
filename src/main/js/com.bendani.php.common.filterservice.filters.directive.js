@@ -5,11 +5,17 @@ angular
             priority: 1001,
             scope: {
                 filterServiceId: "=",
+                showRefresh: "=",
                 onFilter: "&"
             },
             restrict: "E",
             template: '<div ng-include="getTemplateUrl()"></div>',
             controller: ['$scope', '$rootScope', 'FilterService', function($scope, $rootScope, FilterService) {
+
+                if(!$scope.showRefresh){
+                    $scope.showRefresh = true;
+                }
+
                 $scope.filterSelectTemplate = 'packages/bendani/php-common/filter-service/filter-select-popover.html';
 
                 $scope.selectedFilters = FilterService.getSelectedFilters($scope.filterServiceId);
