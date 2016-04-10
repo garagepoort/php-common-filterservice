@@ -12,7 +12,7 @@ angular
             template: '<div ng-include="getTemplateUrl()"></div>',
             controller: ['$scope', '$rootScope', 'FilterService', function($scope, $rootScope, FilterService) {
 
-                if(!$scope.showRefresh){
+                if($scope.showRefresh == undefined){
                     $scope.showRefresh = true;
                 }
 
