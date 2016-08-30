@@ -24,7 +24,7 @@ class FilterServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([__DIR__.'/../../../public' => public_path('vendor/bendani/php-common/filter-service'),], 'public');
+        $this->publishes([__DIR__.'/../../../public' => public_path('packages/bendani/php-common/filter-service'),], 'public');
     }
 
 
