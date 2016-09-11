@@ -6,8 +6,8 @@
     }
   },
   "require": {
-    "bendani/php-common/utils": "dev-feature/upgrade_laravel",
-    "bendani/php-common/uiframework": "dev-feature/upgrade_laravel",
+    "bendani/php-common/utils": "v3.0.*",
+    "bendani/php-common/uiframework": "v2.0.*",
     "illuminate/support": "~5.0"
   },
   "repositories": [
