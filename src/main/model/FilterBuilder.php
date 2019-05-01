@@ -33,7 +33,7 @@ class FilterBuilder
     }
 
     public static function missing($field){
-        return new FilterReturnType(['missing' => ['field' => $field]], 'must_not');
+        return new FilterReturnType(['exists' => ['field' => $field]], 'must_not');
     }
 
     public static function exists($field){
