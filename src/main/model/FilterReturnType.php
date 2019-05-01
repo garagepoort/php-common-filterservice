@@ -6,16 +6,18 @@ class FilterReturnType
 {
 
     private $key = 'filter';
+    private $clause = 'must';
     private $value;
 
     /**
      * FilterReturnType constructor.
-     * @param $key
+     * @param $clause
      * @param $value
      */
-    public function __construct($value)
+    public function __construct($value, $clause)
     {
         $this->value = $value;
+        $this->clause = $clause;
     }
 
 
@@ -27,4 +29,8 @@ class FilterReturnType
         return $this->value;
     }
 
+    public function getClause()
+    {
+        return $this->clause;
+    }
 }
