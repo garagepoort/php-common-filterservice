@@ -21,7 +21,7 @@ class FilterBuilder
     public static function notTerms($field, $values){
         $values = self::toLowerCase($values);
 
-        return new FilterReturnType(['not' => ['terms' => [$field => $values]]], 'must');
+        return new FilterReturnType(['terms' => [$field => $values]], 'must_not');
     }
 
     public static function match($field, $value){
